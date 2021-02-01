@@ -1,0 +1,151 @@
+<div class="content pt-4" role="main">
+  <div class="container">
+    <div class="alert alert-info" id="infoMsg1" role="alert" style="display: none;"></div>
+  </div>
+    <form class="container pt-4 pb-4" id="step1" [formGroup]="step1" (ngSubmit)="onSubmit1()">
+        <div class="form-group">
+            <label for="NIT1">Ingrese el NIT de la empresa que se
+                pretende registrar *
+            </label>
+            <input type="number" class="form-control" id="NIT1" formControlName="NIT1" placeholder="NIT">
+        </div>
+        <div class="alert alert-danger" id="alertMsg1" role="alert" style="display: none;"></div>
+        <button type="submit" class="btn btn-primary">Continuar</button>
+    </form>
+
+    <form class="needs-validation container pt-4 pb-4" id="step2" [formGroup]="step2" (ngSubmit)="onSubmit2()" style="display: none;">
+        <input type="hidden" id="NIT2" formControlName="NIT2">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="tipoID">Tipo de identificación *
+                </label>
+                <select class="form-control" id="tipoID" formControlName="tipoID">
+                    <option>CC</option>
+                    <option>NIT</option>
+                    <option>Extranjera</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ID">Número de identificación *</label>
+                <input type="number" class="form-control" id="ID" formControlName="ID" placeholder="Número de identificación">
+            </div>
+        </div>
+        <div id="empresa" style="display: none;">
+            <div class="form-group">
+                <label for="nombreEmpresa">Nombre de la empresa *
+                </label>
+                <input type="text" class="form-control" id="nombreEmpresa" formControlName="nombreEmpresa" placeholder="Nombre de la empresa">
+            </div>
+        </div>
+        <div class="row" id="nombres">
+            <div class="form-group col-md-6">
+                <label for="nombre1">Primer nombre *
+                </label>
+                <input type="text" class="form-control" id="nombre1" formControlName="nombre1" placeholder="Primer nombre">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="nombre2">Segundo nombre
+                </label>
+                <input type="text" class="form-control" id="nombre2" formControlName="nombre2" placeholder="Segundo nombre">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="apellido1">Primer apellido *
+                </label>
+                <input type="text" class="form-control" id="apellido1" formControlName="apellido1" placeholder="Primer apellido">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="apellido2">Segundo apellido
+                </label>
+                <input type="text" class="form-control" id="apellido2" formControlName="apellido2" placeholder="Segundo apellido">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="email">Correo electrónico *
+                </label>
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Correo electrónico">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="telefono">Teléfono celular *
+                </label>
+                <input type="number" class="form-control" id="telefono" formControlName="telefono" placeholder="Teléfono celular">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="via">Via
+                </label>
+
+                <select class="form-control" id="via" formControlName="via">
+                    <option>Carrera</option>
+                    <option>Calle</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="via1">Nro *
+                </label>
+                <input type="number" class="form-control" id="via1" formControlName="via1" placeholder="">
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="via2">Letra
+                </label>
+                <input type="text" class="form-control" id="via2" formControlName="via2" placeholder="">
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="via3">Nro *
+                </label>
+                <input type="number" class="form-control" id="via3" formControlName="via3" placeholder="">
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="via4">Letra
+                </label>
+                <input type="text" class="form-control" id="via4" formControlName="via4" placeholder="">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="complementos">Nro y complementos *
+                </label>
+                <input type="text" class="form-control" id="complementos" formControlName="complementos" placeholder="">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="form-group col-md-6">
+                <label for="direccion">Dirección
+                </label>
+                <input type="text" class="form-control" id="direccion" formControlName="direccion" placeholder="Dirección" readonly value="{{via}}{{via1}}{{via2}}{{via3}}{{via4}}{{complementos}}">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="municipio">Municipio *
+                </label>
+                <input type="text" class="form-control" id="municipio" formControlName="municipio" placeholder="Municipio">
+            </div>
+
+        </div>
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" formControlName="msg_tel" id="check1">
+            <label class="form-check-label" for="check1">Autorizo el envío de mensajes al celular suministrado</label>
+          </div>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" formControlName="msg_email" id="check2">
+            <label class="form-check-label" for="check2">Autorizo el envío de mensajes a la dirección de correo electrónico</label>
+          </div>
+        </div>
+      </div>
+        <div class="alert alert-danger" id="alertMsg2" role="alert" style="display: none;"></div>
+        <div class="alert alert-success" id="successMsg2" role="alert" style="display: none;"></div>
+        <code class="d-block mb-4" id="step2Code"></code>
+        <button type="submit" class="btn btn-primary">Continuar</button>
+    </form>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,8 @@
+{
+    "empresas": [
+        { "id": 1, "nombre": "Puma", "nit": "900674335", "cuidad": "Bogota", "direccion": "CL 111 18B 17", "restricted": true},
+        { "id": 2, "nombre": "Nike", "nit": "811033098", "cuidad": "Bogota", "direccion": "CL 1 00B 10", "restricted": false}
+    ],
+    "registros": [
+    ]
+  }
